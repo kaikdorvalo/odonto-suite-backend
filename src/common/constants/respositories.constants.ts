@@ -1,0 +1,4 @@
+export const Repositories = {
+    USER_REPOSITORY: 'USER_REPOSITORY',
+    TENANT_REPOSITORY: 'TENANT_REPOSITORY'
+}

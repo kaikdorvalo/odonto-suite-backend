@@ -7,6 +7,8 @@ import { DataSources } from "../../../../../../common/constants/data-sources.con
 import { Tenant } from "../../../domain/entities/tenant.entity";
 import { TenantSql } from "../../../../../../modules/common/database/infrastructure/sql/tenant.sql";
 import { CreateTenantDto } from "../../../../../../common/dtos/tenant/create-tenant.dto";
+import { httpExceptionHandler } from "src/common/utils/exception-handler";
+import { TenantAlreadyExists } from "src/common/exceptions/http/tenant/tenant-already-exists.exception";
 
 
 @Injectable()
@@ -22,25 +24,24 @@ export class CreateTenantUseCase {
     ) { }
 
     async execute(createTenant: CreateTenantDto): Promise<Tenant | null> {
-        const cleanName = this.tenantService.validateName(createTenant.name);
-
-        if (await this.tenantService.checkIfTenantExists(cleanName)) {
-            throw new Error('Tenant already exists');
-        }
-
-        const tenant = new Tenant();
-        tenant.name = cleanName;
-        tenant.active = true;
-        tenant.createdAt = new Date();
-        tenant.updatedAt = tenant.createdAt;
-
         const queryRunner = this.dataSource.createQueryRunner();
-        await queryRunner.connect();
-        await queryRunner.startTransaction();
-
         try {
+            await queryRunner.connect();
+            await queryRunner.startTransaction();
+
+            const cleanName = this.tenantService.validateName(createTenant.name);
+            if (await this.tenantService.checkIfTenantExists(cleanName)) {
+                throw new TenantAlreadyExists();
+            }
+
+            const tenant = new Tenant();
+            tenant.name = cleanName;
+            tenant.active = true;
+            tenant.createdAt = new Date();
+            tenant.updatedAt = tenant.createdAt;
+
             await this.tenantRepository.createTenant(tenant, queryRunner.manager);
-            const schemaName = `tenant_${tenant.id}`;
+            const schemaName = 'tenant_' + tenant.id;
             await this.tenantRepository.createSchema(schemaName, queryRunner.manager);
 
             const tenantSql = new TenantSql(schemaName);
@@ -50,8 +51,7 @@ export class CreateTenantUseCase {
             return tenant;
         } catch (error) {
             await queryRunner.rollbackTransaction();
-            console.error(error);
-            return null;
+            httpExceptionHandler(error);
         } finally {
             await queryRunner.release();
         }

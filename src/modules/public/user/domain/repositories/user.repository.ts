@@ -1,3 +1,5 @@
+import { IUserWithPassword } from "../../application/interfaces/user-with-password.interface";
+import { UserPassword } from "../entities/user-password.entity";
 import { User } from "../entities/user.entity";
 
 export interface UserRepository {

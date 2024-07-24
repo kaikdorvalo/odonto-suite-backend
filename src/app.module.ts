@@ -7,6 +7,7 @@ import { ClinicModule } from './modules/public/clinic/clinic.module';
 import { UserModule } from './modules/public/user/user.module';
 import { TenancyModule } from './modules/common/tenancy/tenancy.module';
 import { TenantModule } from './modules/public/tenant/tenant.module';
+import { AuthModule } from './modules/common/auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { TenantModule } from './modules/public/tenant/tenant.module';
     DatabaseModule,
     UserModule,
     TenantModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

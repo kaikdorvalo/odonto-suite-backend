@@ -3,6 +3,10 @@ import { DataSource, Repository } from "typeorm";
 import { UserRepository } from "../../domain/repositories/user.repository";
 import { Inject } from "@nestjs/common";
 import { DataSources } from "src/common/constants/data-sources.constants";
+import { IUserWithPassword } from "../../application/interfaces/user-with-password.interface";
+import { DefaultTableNames } from "src/common/constants/table-names.constants";
+import { USER_PASSWORD_TABLE, USER_TABLE } from "src/common/constants/column-names.constants";
+import { UserPassword } from "../../domain/entities/user-password.entity";
 
 export class UserRepositoryImpl extends Repository<User> implements UserRepository {
     constructor(@Inject(DataSources.DEFAULT_DATASOURCE) private dataSource: DataSource) {

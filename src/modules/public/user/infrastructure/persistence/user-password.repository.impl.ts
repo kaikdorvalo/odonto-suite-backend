@@ -1,5 +1,5 @@
 import { User } from "../../domain/entities/user.entity";
-import { DataSource, Repository } from "typeorm";
+import { DataSource, EntityManager, Repository } from "typeorm";
 import { Inject } from "@nestjs/common";
 import { DataSources } from "src/common/constants/data-sources.constants";
 import { UserPassword } from "../../domain/entities/user-password.entity";
@@ -12,5 +12,13 @@ export class UserPasswordRepositoryImpl extends Repository<UserPassword> impleme
 
     async getUserPassword(user: User): Promise<UserPassword> {
         return await this.findOneBy({ user: user });
+    }
+
+    createUserPassword(): UserPassword {
+        return this.create();
+    }
+
+    async saveUserPassword(userPassword: UserPassword, manager: EntityManager): Promise<UserPassword> {
+        return await manager.save(userPassword);
     }
 }

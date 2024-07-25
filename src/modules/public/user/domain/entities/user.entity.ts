@@ -20,6 +20,10 @@ export class User {
     @Index(IndexNames.NAME2)
     lastName: string;
 
+    @Column({ name: USER_TABLE.CPF, nullable: false, unique: true })
+    @Index(IndexNames.CPF)
+    cpf: string;
+
     @Column({ name: USER_TABLE.EMAIL, nullable: false, unique: true })
     @Index(IndexNames.EMAIL)
     email: string;
@@ -27,7 +31,7 @@ export class User {
     @Column({ name: USER_TABLE.DATE_OF_BIRTH, nullable: false })
     dateOfBirth: Date;
 
-    @OneToOne(() => Address, { nullable: false })
+    @OneToOne(() => Address, { nullable: true })
     @JoinColumn({ name: USER_TABLE.USER_ADDRESS_ID })
     address: Address;
 

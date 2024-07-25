@@ -6,6 +6,7 @@ import { DatabaseModule } from '../../common/database/database.module';
 import { Repositories } from 'src/common/constants/respositories.constants';
 import { UserPasswordRepositoryImpl } from './infrastructure/persistence/user-password.repository.impl';
 import { UserPasswordService } from './domain/services/user-password.service';
+import { CreateUserUseCase } from './application/use-cases/create-user/create-user.use-case';
 
 @Module({
   imports: [DatabaseModule],
@@ -20,7 +21,8 @@ import { UserPasswordService } from './domain/services/user-password.service';
     {
       provide: Repositories.USER_PASSWORD_REPOSITORY,
       useClass: UserPasswordRepositoryImpl
-    }
+    },
+    CreateUserUseCase
   ],
   exports: [
     UserService,

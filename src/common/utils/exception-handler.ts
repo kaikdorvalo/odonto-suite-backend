@@ -1,5 +1,5 @@
 import { HttpException } from "@nestjs/common";
-import { InternalError } from "../exceptions/http/internal-error.exception";
+import { InternalErrorException } from "../exceptions/http/internal-error.exception";
 
 export const httpExceptionHandler = (error: Error) => {
     if (error instanceof HttpException) {
@@ -8,6 +8,6 @@ export const httpExceptionHandler = (error: Error) => {
         console.log('----------- Http Exception handler -----------')
         console.log(error)
         console.log('----------- end -----------')
-        throw new InternalError();
+        throw new InternalErrorException();
     }
 }

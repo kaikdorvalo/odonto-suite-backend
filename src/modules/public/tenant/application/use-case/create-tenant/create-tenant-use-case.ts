@@ -8,7 +8,7 @@ import { Tenant } from "../../../domain/entities/tenant.entity";
 import { TenantSql } from "../../../../../../modules/common/database/infrastructure/sql/tenant.sql";
 import { CreateTenantDto } from "../../../../../../common/dtos/tenant/create-tenant.dto";
 import { httpExceptionHandler } from "src/common/utils/exception-handler";
-import { TenantAlreadyExists } from "src/common/exceptions/http/tenant/tenant-already-exists.exception";
+import { TenantAlreadyExistsException } from "src/common/exceptions/http/tenant/tenant-already-exists.exception";
 
 
 @Injectable()
@@ -31,7 +31,7 @@ export class CreateTenantUseCase {
 
             const cleanName = this.tenantService.validateName(createTenant.name);
             if (await this.tenantService.checkIfTenantExists(cleanName)) {
-                throw new TenantAlreadyExists();
+                throw new TenantAlreadyExistsException();
             }
 
             const tenant = new Tenant();

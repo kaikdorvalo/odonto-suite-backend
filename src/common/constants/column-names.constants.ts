@@ -2,6 +2,7 @@ export const USER_TABLE = {
     ID: 'id',
     FIRST_NAME: 'first_name',
     LAST_NAME: 'last_name',
+    CPF: 'cpf',
     EMAIL: 'email',
     DATE_OF_BIRTH: 'date_of_birth',
     USER_ADDRESS_ID: 'user_address_id',

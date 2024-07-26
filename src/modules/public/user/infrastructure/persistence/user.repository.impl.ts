@@ -9,11 +9,11 @@ export class UserRepositoryImpl extends Repository<User> implements UserReposito
         super(User, dataSource.createEntityManager());
     }
     async findById(id: number): Promise<User> {
-        return await this.findOne({ where: { id: id } });
+        return await this.findOne({ where: { id: id, active: true } });
     }
 
     async findByEmail(email: string): Promise<User> {
-        return await this.findOne({ where: { email: email } });
+        return await this.findOne({ where: { email: email, active: true } });
     }
 
     async findUserBy(options: FindOneOptions<User>): Promise<User | null> {

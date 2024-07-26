@@ -31,7 +31,7 @@ export class CreateUserUseCase {
             await queryRunner.connect();
             await queryRunner.startTransaction();
 
-            const exists = await this.userRepository.findUserBy({ where: [{ email: createUser.email }, { cpf: createUser.cpf }] });
+            const exists = await this.userRepository.findUserBy({ where: [{ email: createUser.email, active: true }, { cpf: createUser.cpf, active: true }] });
             if (exists) {
                 throw new UserAlreadyExistsException();
             }

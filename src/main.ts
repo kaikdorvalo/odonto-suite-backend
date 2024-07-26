@@ -8,6 +8,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Odonto-suite')
+    .addBearerAuth()
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);

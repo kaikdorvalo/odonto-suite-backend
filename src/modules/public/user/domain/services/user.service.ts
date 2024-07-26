@@ -35,6 +35,11 @@ export class UserService {
         }
     }
 
+    clearCpf(string: string): string {
+        const regex = new Regex();
+        return regex.onlyNumbers(string);
+    }
+
     validateCpf(cpf: string) {
         if (typeof cpf !== "string") return false
         const regex = new Regex();

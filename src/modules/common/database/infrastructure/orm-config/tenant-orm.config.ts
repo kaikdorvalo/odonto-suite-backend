@@ -1,6 +1,6 @@
 import { DataSourceOptions } from "typeorm";
 import 'dotenv/config'
-import { Address } from "../../../../../common/entities/address.entity";
+import { Address } from "../../../address/domain/entities/address.entity";
 import { ClinicUser } from "../../../../tenant/clinic-user/domain/entities/clinic-user.entity";
 import { Appointment } from "../../../../tenant/appointment/domain/entities/appointment.entity";
 import { ClinicUnit } from "../../../../public/clinic-unit/domain/entities/clinic-unit.entity";

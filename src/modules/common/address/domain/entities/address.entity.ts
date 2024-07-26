@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { DefaultTableNames } from "../../common/constants/table-names.constants";
-import { ADDRESS_TABLE } from "../../common/constants/column-names.constants";
+import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
+import { ADDRESS_TABLE } from "../../../../../common/constants/column-names.constants";
 
 @Entity({ name: DefaultTableNames.ADDRESS })
 export class Address {

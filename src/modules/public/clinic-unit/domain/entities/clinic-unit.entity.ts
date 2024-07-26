@@ -1,7 +1,7 @@
 import { SCHEMAS } from "../../../../../common/constants/schemas.constants";
 import { CLINIC_UNIT_TABLE } from "../../../../../common/constants/column-names.constants";
 import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
-import { Address } from "../../../../../common/entities/address.entity";
+import { Address } from "../../../../common/address/domain/entities/address.entity";
 import { Clinic } from "../../../clinic/domain/entities/clinic.entity";
 import { UserClinicUnit } from "../../../user/domain/entities/user-clinic-unit.entity";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";

@@ -2,7 +2,7 @@ import { User } from "../../domain/entities/user.entity";
 import { DataSource, EntityManager, FindOneOptions, FindOptionsWhere, Repository } from "typeorm";
 import { UserRepository } from "../../domain/repositories/user.repository";
 import { Inject } from "@nestjs/common";
-import { DataSources } from "src/common/constants/data-sources.constants";
+import { DataSources } from "../../../../../common/constants/data-sources.constants";
 
 export class UserRepositoryImpl extends Repository<User> implements UserRepository {
     constructor(@Inject(DataSources.DEFAULT_DATASOURCE) private dataSource: DataSource) {

@@ -1,7 +1,7 @@
 import { User } from "../../domain/entities/user.entity";
 import { DataSource, EntityManager, Repository } from "typeorm";
 import { Inject } from "@nestjs/common";
-import { DataSources } from "src/common/constants/data-sources.constants";
+import { DataSources } from "../../../../../common/constants/data-sources.constants";
 import { UserPassword } from "../../domain/entities/user-password.entity";
 import { UserPasswordRepository } from "../../domain/repositories/user-password.repository";
 

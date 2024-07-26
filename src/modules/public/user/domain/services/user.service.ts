@@ -6,7 +6,7 @@ import { UserPassword } from '../entities/user-password.entity';
 import { UserPasswordRepository } from '../repositories/user-password.repository';
 import { IHashedPassword } from '../../application/interfaces/hashed-password';
 import { compare, genSalt, hash } from 'bcrypt';
-import { Regex } from 'src/common/utils/regex';
+import { Regex } from '../../../../../common/utils/regex';
 
 @Injectable()
 export class UserService {

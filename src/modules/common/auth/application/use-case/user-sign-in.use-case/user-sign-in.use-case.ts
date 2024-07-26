@@ -18,10 +18,21 @@ export class UserSignInUseCase {
     async execute(userSignIn: UserSignInDto): Promise<{ access_token: string }> {
         try {
             const user = await this.userService.getUserByEmail(userSignIn.email);
-            const userPassword = await this.userPasswordService.getUserPassword(user);
-            if (!user || !userPassword) {
+            if (!user) {
                 throw new UnauthorizedException();
             }
+
+            const userPassword = await this.userPasswordService.getUserPassword(user);
+            if (!userPassword) {
+                throw new UnauthorizedException();
+            }
+
+            if (!(await this.userService.comparePassword(userSignIn.password, userPassword.passwordHash))) {
+                throw new UnauthorizedException();
+            }
+
+            console.log()
+
             const payload = { sub: user.id, firstName: user.firstName, lastName: user.lastName };
             return {
                 access_token: await this.jwtService.signAsync(payload),

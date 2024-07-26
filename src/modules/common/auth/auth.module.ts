@@ -5,6 +5,7 @@ import 'dotenv/config'
 import { AuthService } from './domain/service/auth.service';
 import { AuthController } from './presentation/controllers/auth.controller';
 import { UserSignInUseCase } from './application/use-case/user-sign-in.use-case/user-sign-in.use-case';
+import { UserService } from 'src/modules/public/user/domain/services/user.service';
 
 @Module({
     imports: [

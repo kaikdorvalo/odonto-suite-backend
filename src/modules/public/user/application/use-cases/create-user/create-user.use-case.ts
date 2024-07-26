@@ -9,6 +9,7 @@ import { Repositories } from "src/common/constants/respositories.constants";
 import { UserAlreadyExistsException } from "src/common/exceptions/http/user/user-already-exists.exception";
 import { DataSources } from "src/common/constants/data-sources.constants";
 import { DataSource } from "typeorm";
+import { UserInvalidCpfException } from "src/common/exceptions/http/user/user-invalid-cpf.exception";
 
 @Injectable()
 export class CreateUserUseCase {
@@ -30,6 +31,10 @@ export class CreateUserUseCase {
         try {
             await queryRunner.connect();
             await queryRunner.startTransaction();
+
+            if (!this.userService.validateCpf(createUser.cpf)) {
+                throw new UserInvalidCpfException();
+            }
 
             const exists = await this.userRepository.findUserBy({ where: [{ email: createUser.email, active: true }, { cpf: createUser.cpf, active: true }] });
             if (exists) {

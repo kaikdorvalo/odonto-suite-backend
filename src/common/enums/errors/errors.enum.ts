@@ -3,4 +3,5 @@ export const Errors = {
     UNAUTHORIZED: 'Unauthorized',
     TENANT_ALREADY_EXISTS: 'Tenant name already exists',
     USER_ALREADY_EXISTS: 'User already exists',
+    USER_CPF_INVALID: 'Invalid user cpf'
 }

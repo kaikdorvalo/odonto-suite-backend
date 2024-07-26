@@ -1,7 +1,7 @@
 import { APPOINTMENT_TABLE, CLINIC_USER_TABLE, POSITION_TABLE, USER_TABLE } from "src/common/constants/column-names.constants";
 import { SCHEMAS } from "src/common/constants/schemas.constants";
 import { DefaultTableNames, SchemaTableNames } from "src/common/constants/table-names.constants";
-import { DataSource, EntityManager } from "typeorm";
+import { EntityManager } from "typeorm";
 
 export class TenantSql {
     tenant: string

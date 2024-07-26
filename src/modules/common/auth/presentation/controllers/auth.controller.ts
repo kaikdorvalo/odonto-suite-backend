@@ -6,7 +6,7 @@ import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Errors } from "src/common/enums/errors/errors.enum";
 
 @Controller('auth')
-@UseFilters(new HttpExceptionFilter)
+@UseFilters(new HttpExceptionFilter())
 @ApiTags('auth')
 export class AuthController {
     constructor(

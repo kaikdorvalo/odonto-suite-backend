@@ -25,7 +25,8 @@ export class UserService {
         return user;
     }
 
-    async hashPassword(password: string): Promise<IHashedPassword> {
+    async hashPassword(password: string): Promise<IHashedPassword | null> {
+        if (typeof password !== 'string') return null;
         const saltRounds = 10;
         const salt = await genSalt(saltRounds);
         const hashedPassword = await hash(password, salt);
@@ -35,15 +36,15 @@ export class UserService {
         }
     }
 
-    clearCpf(string: string): string {
+    clearCpf(string: string): string | null {
+        if (typeof string !== 'string') return null;
         const regex = new Regex();
         return regex.onlyNumbers(string);
     }
 
-    validateCpf(cpf: string) {
+    validateCpf(cpf: string): string | boolean {
         if (typeof cpf !== "string") return false
-        const regex = new Regex();
-        cpf = regex.onlyNumbers(cpf);
+        cpf = this.clearCpf(cpf);
         if (
             !cpf ||
             cpf.length != 11 ||

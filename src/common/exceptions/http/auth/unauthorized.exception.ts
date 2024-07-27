@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus } from "@nestjs/common";
-import { Errors } from "src/common/enums/errors/errors.enum";
+import { Errors } from "../../../enums/errors/errors.enum";
 
 export class UnauthorizedException extends HttpException {
     constructor() {

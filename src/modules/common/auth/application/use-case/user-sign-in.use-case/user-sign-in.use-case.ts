@@ -31,8 +31,6 @@ export class UserSignInUseCase {
                 throw new UnauthorizedException();
             }
 
-            console.log()
-
             const payload = { sub: user.id, firstName: user.firstName, lastName: user.lastName };
             return {
                 access_token: await this.jwtService.signAsync(payload),

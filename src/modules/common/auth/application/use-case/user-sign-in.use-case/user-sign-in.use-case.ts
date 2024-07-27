@@ -1,10 +1,10 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { UserSignInDto } from "../../../../../../common/dtos/user/user-sign-in.dto";
 import { UserService } from "../../../../../../modules/public/user/domain/services/user.service";
-import { UserPasswordService } from "src/modules/public/user/domain/services/user-password.service";
+import { UserPasswordService } from "../../../../../public/user/domain/services/user-password.service";
 import { JwtService } from "@nestjs/jwt";
-import { httpExceptionHandler } from "src/common/utils/exception-handler";
-import { UnauthorizedException } from "src/common/exceptions/http/auth/unauthorized.exception";
+import { httpExceptionHandler } from "../../../../../../common/utils/exception-handler";
+import { UnauthorizedException } from "../../../../../../common/exceptions/http/auth/unauthorized.exception";
 
 @Injectable()
 export class UserSignInUseCase {

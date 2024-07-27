@@ -1,15 +1,15 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { CreateUserDto } from "src/common/dtos/user/create-user.dto";
+import { CreateUserDto } from "../../../../../../common/dtos/user/create-user.dto";
 import { User } from "../../../domain/entities/user.entity";
 import { UserService } from "../../../domain/services/user.service";
-import { httpExceptionHandler } from "src/common/utils/exception-handler";
+import { httpExceptionHandler } from "../../../../../../common/utils/exception-handler";
 import { UserRepository } from "../../../domain/repositories/user.repository";
 import { UserPasswordRepository } from "../../../domain/repositories/user-password.repository";
-import { Repositories } from "src/common/constants/respositories.constants";
-import { UserAlreadyExistsException } from "src/common/exceptions/http/user/user-already-exists.exception";
-import { DataSources } from "src/common/constants/data-sources.constants";
+import { Repositories } from "../../../../../../common/constants/respositories.constants";
+import { UserAlreadyExistsException } from "../../../../../../common/exceptions/http/user/user-already-exists.exception";
+import { DataSources } from "../../../../../../common/constants/data-sources.constants";
 import { DataSource } from "typeorm";
-import { UserInvalidCpfException } from "src/common/exceptions/http/user/user-invalid-cpf.exception";
+import { UserInvalidCpfException } from "../../../../../../common/exceptions/http/user/user-invalid-cpf.exception";
 
 @Injectable()
 export class CreateUserUseCase {

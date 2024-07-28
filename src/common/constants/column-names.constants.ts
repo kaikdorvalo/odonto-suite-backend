@@ -79,6 +79,14 @@ export const POSITION_TABLE = {
     UPDATED_AT: 'updated_at',
 }
 
+export const USER_TYPE_TABLE = {
+    ID: 'id',
+    NAME: 'name',
+    ACTIVE: 'active',
+    CREATED_AT: 'created_at',
+    UPDATED_AT: 'updated_at',
+}
+
 export const CLINIC_USER_TABLE = {
     ID: 'id',
     USER: 'user',

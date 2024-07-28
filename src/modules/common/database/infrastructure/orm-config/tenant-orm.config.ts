@@ -10,6 +10,7 @@ import { UserPassword } from "../../../../public/user/domain/entities/user-passw
 import { User } from "../../../../public/user/domain/entities/user.entity";
 import { Tenant } from "../../../../public/tenant/domain/entities/tenant.entity";
 import { Position } from "../../../../public/user/domain/entities/position.entity";
+import { UserType } from "../../../../../modules/public/user/domain/entities/user-type.entity";
 
 export const tenantConfig: DataSourceOptions = {
     type: 'postgres',
@@ -30,6 +31,7 @@ export const tenantConfig: DataSourceOptions = {
         Address,
         Tenant,
         Position,
+        UserType,
     ],
     synchronize: true,
     migrations: ['dist/migrations/tenanted/*.js'],

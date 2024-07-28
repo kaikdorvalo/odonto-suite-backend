@@ -8,6 +8,7 @@ export const DefaultTableNames = {
     CLINIC_UNIT_ADDRESS: 'clinic_unit_address',
     TENANT: 'tenant',
     POSITION: 'position',
+    USER_TYPE: 'user_type',
 }
 
 export const SchemaTableNames = {

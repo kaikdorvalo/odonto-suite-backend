@@ -6,6 +6,7 @@ export const USER_TABLE = {
     EMAIL: 'email',
     DATE_OF_BIRTH: 'date_of_birth',
     USER_ADDRESS_ID: 'user_address_id',
+    USER_TYPE_ID: 'user_type_id',
     ACTIVE: 'active',
     CREATED_AT: 'created_at',
     UPDATED_AT: 'updated_at',

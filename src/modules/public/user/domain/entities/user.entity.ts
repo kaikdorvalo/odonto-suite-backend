@@ -5,6 +5,7 @@ import { Address } from "../../../../common/address/domain/entities/address.enti
 import { UserClinicUnit } from "./user-clinic-unit.entity";
 import { IndexNames } from "../../../../../common/constants/index-names.constants";
 import { SCHEMAS } from "../../../../../common/constants/schemas.constants";
+import { UserType } from "./user-type.entity";
 
 @Entity({ name: DefaultTableNames.USER, schema: SCHEMAS.PUBLIC })
 export class User {
@@ -37,6 +38,10 @@ export class User {
 
     @OneToMany(() => UserClinicUnit, userClinicUnit => userClinicUnit.user, { nullable: false })
     userClinicUnits: UserClinicUnit[];
+
+    @OneToOne(() => UserType, { nullable: false })
+    @JoinColumn({ name: USER_TABLE.USER_TYPE_ID })
+    userType: UserType;
 
     @Column({ name: USER_TABLE.ACTIVE, nullable: false })
     active: boolean;

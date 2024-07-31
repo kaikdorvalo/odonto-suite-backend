@@ -27,7 +27,7 @@ export class LicenseService {
     }
 
     private generateBlock(characters: string, charactersBlock: number): string {
-        let generatedBlock = '';
+        let generatedBlock: string;
 
         do {
             generatedBlock = '';

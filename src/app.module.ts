@@ -8,6 +8,7 @@ import { UserModule } from './modules/public/user/user.module';
 import { TenancyModule } from './modules/common/tenancy/tenancy.module';
 import { TenantModule } from './modules/public/tenant/tenant.module';
 import { AuthModule } from './modules/common/auth/auth.module';
+import { LicenseModule } from './modules/common/license/license.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { AuthModule } from './modules/common/auth/auth.module';
     DatabaseModule,
     UserModule,
     TenantModule,
-    AuthModule
+    AuthModule,
+    LicenseModule
   ],
   controllers: [AppController],
   providers: [AppService],

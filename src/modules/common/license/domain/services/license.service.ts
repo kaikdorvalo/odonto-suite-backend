@@ -10,7 +10,7 @@ export class LicenseService {
     ) { }
 
 
-    generateLicenseKey() {
+    generateLicenseKey(): string {
         const characters = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
         let blocks = 4;
         let charactersBlock = 6;

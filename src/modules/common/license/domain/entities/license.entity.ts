@@ -1,9 +1,9 @@
-import { LICENSE_TABLE } from "src/common/constants/column-names.constants";
-import { DefaultTableNames } from "src/common/constants/table-names.constants";
+import { LICENSE_TABLE } from "../../../../../common/constants/column-names.constants";
+import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { Column, Entity, Index, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { LicenseType } from "./license-type.entity";
-import { User } from "src/modules/public/user/domain/entities/user.entity";
-import { IndexNames } from "src/common/constants/index-names.constants";
+import { User } from "../../../../../modules/public/user/domain/entities/user.entity";
+import { IndexNames } from "../../../../../common/constants/index-names.constants";
 
 @Entity({ name: DefaultTableNames.LICENSE })
 export class License {

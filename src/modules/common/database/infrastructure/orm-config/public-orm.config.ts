@@ -9,6 +9,8 @@ import { User } from "../../../../public/user/domain/entities/user.entity";
 import { Tenant } from "../../../../public/tenant/domain/entities/tenant.entity";
 import { Position } from "../../../../public/user/domain/entities/position.entity";
 import { UserType } from "../../../../../modules/public/user/domain/entities/user-type.entity";
+import { License } from "../../../../../modules/common/license/domain/entities/license.entity";
+import { LicenseType } from "../../../../../modules/common/license/domain/entities/license-type.entity";
 
 export const publicConfig: DataSourceOptions = {
     type: 'postgres',
@@ -28,6 +30,9 @@ export const publicConfig: DataSourceOptions = {
         Tenant,
         Position,
         UserType,
+        LicenseType,
+        License,
+
     ],
     synchronize: true,
     migrations: ['dist/migrations/public/*.js'],

@@ -3,7 +3,7 @@ import { CreateTenantUseCase } from '../../application/use-case/create-tenant/cr
 import { CreateTenantDto } from '../../../../../common/dtos/tenant/create-tenant.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { HttpExceptionFilter } from '../../../../../common/exception-filters/http-exception.filter';
-import { Errors } from 'src/common/enums/errors/errors.enum';
+import { Errors } from '../../../../../common/enums/errors/errors.enum';
 
 @ApiTags('tenant')
 @Controller('tenants')

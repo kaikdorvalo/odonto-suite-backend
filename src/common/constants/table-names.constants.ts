@@ -9,6 +9,8 @@ export const DefaultTableNames = {
     TENANT: 'tenant',
     POSITION: 'position',
     USER_TYPE: 'user_type',
+    LICENSE: 'license',
+    LICENSE_TYPE: 'license_type'
 }
 
 export const SchemaTableNames = {

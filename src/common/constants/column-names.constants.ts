@@ -43,6 +43,25 @@ export const ADDRESS_TABLE = {
     UPDATED_AT: 'updated_at',
 }
 
+export const LICENSE_TABLE = {
+    ID: 'id',
+    KEY: 'key',
+    TIME: 'time',
+    UNITS_AMOUNT: 'units_amount',
+    LICENSE_TYPE: 'license_type',
+    ACTIVE: 'active',
+    CREATED_AT: 'created_at',
+    UPDATED_AT: 'updated_at',
+}
+
+export const LICENSE_TYPE_TABLE = {
+    ID: 'id',
+    TYPE: 'string',
+    ACTIVE: 'active',
+    CREATED_AT: 'created_at',
+    UPDATED_AT: 'updated_at',
+}
+
 export const TENANT_TABLE = {
     ID: 'id',
     NAME: 'subdomain',

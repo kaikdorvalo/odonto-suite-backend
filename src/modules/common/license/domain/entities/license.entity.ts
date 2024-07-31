@@ -1,7 +1,9 @@
 import { LICENSE_TABLE } from "src/common/constants/column-names.constants";
 import { DefaultTableNames } from "src/common/constants/table-names.constants";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { LicenseType } from "./license-type.entity";
+import { User } from "src/modules/public/user/domain/entities/user.entity";
+import { IndexNames } from "src/common/constants/index-names.constants";
 
 @Entity({ name: DefaultTableNames.LICENSE })
 export class License {
@@ -9,11 +11,12 @@ export class License {
     @PrimaryGeneratedColumn({ name: LICENSE_TABLE.ID })
     id: number;
 
-    @Column({ name: LICENSE_TABLE.KEY, nullable: false })
+    @Column({ name: LICENSE_TABLE.KEY, nullable: false, unique: true })
+    @Index(IndexNames.LICENSE_KEY)
     key: string;
 
-    @Column({ name: LICENSE_TABLE.TIME, nullable: false })
-    time: number;
+    @Column({ name: LICENSE_TABLE.PERIOD, nullable: false })
+    period: number;
 
     @Column({ name: LICENSE_TABLE.UNITS_AMOUNT, nullable: false })
     unitsAmount: number;
@@ -21,6 +24,17 @@ export class License {
     @OneToOne(() => LicenseType, { nullable: false })
     @JoinColumn({ name: LICENSE_TABLE.LICENSE_TYPE })
     licenseType: LicenseType;
+
+    @OneToOne(() => User, { nullable: true })
+    @JoinColumn({ name: LICENSE_TABLE.ACTIVATED_BY })
+    activatedBy: User;
+
+    @Column({ name: LICENSE_TABLE.ACTIVATION_DATE, nullable: true })
+    activationDate: Date;
+
+    @OneToOne(() => User, { nullable: true })
+    @JoinColumn({ name: LICENSE_TABLE.GENERATED_BY })
+    generatedBy: User;
 
     @Column({ name: LICENSE_TABLE.ACTIVE, nullable: false })
     active: boolean;

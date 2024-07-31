@@ -46,9 +46,12 @@ export const ADDRESS_TABLE = {
 export const LICENSE_TABLE = {
     ID: 'id',
     KEY: 'key',
-    TIME: 'time',
+    PERIOD: 'period',
     UNITS_AMOUNT: 'units_amount',
     LICENSE_TYPE: 'license_type',
+    ACTIVATED_BY: 'activated_by',
+    ACTIVATION_DATE: 'activation_date',
+    GENERATED_BY: 'generated_by',
     ACTIVE: 'active',
     CREATED_AT: 'created_at',
     UPDATED_AT: 'updated_at',

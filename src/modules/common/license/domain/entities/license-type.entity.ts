@@ -1,5 +1,5 @@
-import { LICENSE_TYPE_TABLE } from "src/common/constants/column-names.constants";
-import { DefaultTableNames } from "src/common/constants/table-names.constants";
+import { LICENSE_TYPE_TABLE } from "../../../../../common/constants/column-names.constants";
+import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: DefaultTableNames.LICENSE_TYPE })

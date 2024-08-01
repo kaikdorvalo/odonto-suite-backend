@@ -3,6 +3,8 @@ import { UserRepositoryImpl } from "../../../infrastructure/persistence/user.rep
 import { UserRepository } from "../../repositories/user.repository"
 import { UserService } from "../user.service"
 import { User } from "../../entities/user.entity"
+import { UserType } from "../../entities/user-type.entity"
+import { UserTypes } from "../../../../../../common/constants/user-types.constants"
 
 describe('User Service Test', () => {
     let userService: UserService;
@@ -189,6 +191,32 @@ describe('User Service Test', () => {
             const compare = await userService.comparePassword(otherPassword, hashed.hashedPassword);
 
             expect(compare).toBe(false)
+        })
+    })
+
+    describe('isMasterUser', () => {
+        it('Should return true when valid master user', async () => {
+            const user = new User();
+            const userType = new UserType();
+            userType.name = UserTypes.MASTER;
+            user.userType = userType;
+
+            jest.spyOn(userRepository, 'findById').mockReturnValue(Promise.resolve(user))
+            const result = await userService.isMasterUser(1);
+
+            expect(result).toBe(true);
+        })
+
+        it('Should return false when invalid master user', async () => {
+            const user = new User();
+            const userType = new UserType();
+            userType.name = UserTypes.CUSTOMER;
+            user.userType = userType;
+
+            jest.spyOn(userRepository, 'findById').mockReturnValue(Promise.resolve(user))
+            const result = await userService.isMasterUser(1);
+
+            expect(result).toBe(false);
         })
     })
 })

@@ -2,11 +2,10 @@ import { Inject, Injectable } from '@nestjs/common';
 import { UserRepository } from '../repositories/user.repository';
 import { Repositories } from '../../../../../common/constants/respositories.constants';
 import { User } from '../entities/user.entity';
-import { UserPassword } from '../entities/user-password.entity';
-import { UserPasswordRepository } from '../repositories/user-password.repository';
 import { IHashedPassword } from '../../application/interfaces/hashed-password';
 import { compare, genSalt, hash } from 'bcrypt';
 import { Regex } from '../../../../../common/utils/regex';
+import { UserTypes } from '../../../../../common/constants/user-types.constants';
 
 @Injectable()
 export class UserService {
@@ -23,6 +22,14 @@ export class UserService {
     async getUserByEmail(email: string): Promise<User | null> {
         const user = await this.userRepository.findByEmail(email);
         return user;
+    }
+
+    async isMasterUser(id: number): Promise<boolean> {
+        const user = await this.userRepository.findById(id);
+        if (user.userType.name == UserTypes.MASTER) {
+            return true
+        }
+        return false;
     }
 
     async hashPassword(password: string): Promise<IHashedPassword | null> {

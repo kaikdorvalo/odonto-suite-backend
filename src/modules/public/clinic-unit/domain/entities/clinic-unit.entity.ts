@@ -4,8 +4,8 @@ import { DefaultTableNames } from "../../../../../common/constants/table-names.c
 import { Address } from "../../../../common/address/domain/entities/address.entity";
 import { Clinic } from "../../../clinic/domain/entities/clinic.entity";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "src/modules/public/user/domain/entities/user.entity";
-import { Tenant } from "src/modules/public/tenant/domain/entities/tenant.entity";
+import { User } from "../../../../../modules/public/user/domain/entities/user.entity";
+import { Tenant } from "../../../../../modules/public/tenant/domain/entities/tenant.entity";
 
 
 @Entity({ name: DefaultTableNames.CLINIC_UNIT, schema: SCHEMAS.PUBLIC })

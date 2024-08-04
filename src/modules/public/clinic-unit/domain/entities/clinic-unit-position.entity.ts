@@ -1,5 +1,5 @@
-import { CLINIC_UNIT_POSITION_TABLE } from "src/common/constants/column-names.constants";
-import { DefaultTableNames } from "src/common/constants/table-names.constants";
+import { CLINIC_UNIT_POSITION_TABLE } from "../../../../../common/constants/column-names.constants";
+import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity(DefaultTableNames.CLINIC_UNIT_POSITION)

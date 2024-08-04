@@ -1,9 +1,9 @@
-import { User } from "src/modules/public/user/domain/entities/user.entity";
+import { User } from "../../../../../modules/public/user/domain/entities/user.entity";
 import { Column, Entity, Index, JoinColumn, OneToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { ClinicUnit } from "./clinic-unit.entity";
 import { ClinicUnitPosition } from "./clinic-unit-position.entity";
-import { DefaultTableNames } from "src/common/constants/table-names.constants";
-import { CLINIC_UNIT_USER_TABLE } from "src/common/constants/column-names.constants";
+import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
+import { CLINIC_UNIT_USER_TABLE } from "../../../../../common/constants/column-names.constants";
 
 @Entity(DefaultTableNames.CLINIC_UNIT_USER)
 @Unique([CLINIC_UNIT_USER_TABLE.USER, CLINIC_UNIT_USER_TABLE.CLINIC_UNIT])

@@ -1,8 +1,9 @@
+import { SCHEMAS } from "../../../../../common/constants/schemas.constants";
 import { CLINIC_UNIT_POSITION_TABLE } from "../../../../../common/constants/column-names.constants";
 import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity(DefaultTableNames.CLINIC_UNIT_POSITION)
+@Entity({ name: DefaultTableNames.CLINIC_UNIT_POSITION, schema: SCHEMAS.PUBLIC })
 export class ClinicUnitPosition {
 
     @PrimaryGeneratedColumn({ name: CLINIC_UNIT_POSITION_TABLE.ID })

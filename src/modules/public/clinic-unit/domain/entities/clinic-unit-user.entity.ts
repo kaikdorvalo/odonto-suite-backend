@@ -4,9 +4,10 @@ import { ClinicUnit } from "./clinic-unit.entity";
 import { ClinicUnitPosition } from "./clinic-unit-position.entity";
 import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { CLINIC_UNIT_USER_TABLE } from "../../../../../common/constants/column-names.constants";
+import { SCHEMAS } from "../../../../../common/constants/schemas.constants";
 
-@Entity(DefaultTableNames.CLINIC_UNIT_USER)
-@Unique([CLINIC_UNIT_USER_TABLE.USER, CLINIC_UNIT_USER_TABLE.CLINIC_UNIT])
+@Entity({ name: DefaultTableNames.CLINIC_UNIT_USER, schema: SCHEMAS.PUBLIC })
+@Unique([CLINIC_UNIT_USER_TABLE.CLINIC_UNIT, CLINIC_UNIT_USER_TABLE.USER])
 export class ClinicUnitUser {
 
     @PrimaryGeneratedColumn({ name: CLINIC_UNIT_USER_TABLE.ID })

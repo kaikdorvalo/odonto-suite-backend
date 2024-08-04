@@ -3,14 +3,14 @@ import 'dotenv/config'
 import { Address } from "../../../address/domain/entities/address.entity";
 import { ClinicUnit } from "../../../../public/clinic-unit/domain/entities/clinic-unit.entity";
 import { Clinic } from "../../../../public/clinic/domain/entities/clinic.entity";
-import { UserClinicUnit } from "../../../../public/user/domain/entities/user-clinic-unit.entity";
 import { UserPassword } from "../../../../public/user/domain/entities/user-password.entity";
 import { User } from "../../../../public/user/domain/entities/user.entity";
 import { Tenant } from "../../../../public/tenant/domain/entities/tenant.entity";
-import { Position } from "../../../../public/user/domain/entities/position.entity";
 import { UserType } from "../../../../../modules/public/user/domain/entities/user-type.entity";
 import { License } from "../../../../../modules/common/license/domain/entities/license.entity";
 import { LicenseType } from "../../../../../modules/common/license/domain/entities/license-type.entity";
+import { ClinicUnitUser } from "../../../../../modules/public/clinic-unit/domain/entities/clinic-unit-user.entity";
+import { ClinicUnitPosition } from "../../../../../modules/public/clinic-unit/domain/entities/clinic-unit-position.entity";
 
 export const publicConfig: DataSourceOptions = {
     type: 'postgres',
@@ -24,11 +24,11 @@ export const publicConfig: DataSourceOptions = {
         User,
         Clinic,
         ClinicUnit,
-        UserClinicUnit,
+        ClinicUnitUser,
+        ClinicUnitPosition,
         UserPassword,
         Address,
         Tenant,
-        Position,
         UserType,
         LicenseType,
         License,

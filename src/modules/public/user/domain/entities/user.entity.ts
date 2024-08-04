@@ -2,7 +2,6 @@ import { Column, Entity, Index, JoinColumn, OneToMany, OneToOne, PrimaryGenerate
 import { USER_TABLE } from "../../../../../common/constants/column-names.constants";
 import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { Address } from "../../../../common/address/domain/entities/address.entity";
-import { UserClinicUnit } from "./user-clinic-unit.entity";
 import { IndexNames } from "../../../../../common/constants/index-names.constants";
 import { SCHEMAS } from "../../../../../common/constants/schemas.constants";
 import { UserType } from "./user-type.entity";
@@ -35,9 +34,6 @@ export class User {
     @OneToOne(() => Address, { nullable: true })
     @JoinColumn({ name: USER_TABLE.USER_ADDRESS_ID })
     address: Address;
-
-    @OneToMany(() => UserClinicUnit, userClinicUnit => userClinicUnit.user, { nullable: false })
-    userClinicUnits: UserClinicUnit[];
 
     @OneToOne(() => UserType, { nullable: false })
     @JoinColumn({ name: USER_TABLE.USER_TYPE_ID })

@@ -3,8 +3,9 @@ import { CLINIC_UNIT_TABLE } from "../../../../../common/constants/column-names.
 import { DefaultTableNames } from "../../../../../common/constants/table-names.constants";
 import { Address } from "../../../../common/address/domain/entities/address.entity";
 import { Clinic } from "../../../clinic/domain/entities/clinic.entity";
-import { UserClinicUnit } from "../../../user/domain/entities/user-clinic-unit.entity";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/modules/public/user/domain/entities/user.entity";
+import { Tenant } from "src/modules/public/tenant/domain/entities/tenant.entity";
 
 
 @Entity({ name: DefaultTableNames.CLINIC_UNIT, schema: SCHEMAS.PUBLIC })
@@ -16,16 +17,21 @@ export class ClinicUnit {
     @Column({ name: CLINIC_UNIT_TABLE.NAME, nullable: false })
     name: string;
 
+    @OneToOne(() => Tenant, { nullable: false })
+    @JoinColumn({ name: CLINIC_UNIT_TABLE.TENANT })
+    tenant: Tenant;
+
     @OneToOne(() => Clinic, { nullable: false })
     @JoinColumn({ name: CLINIC_UNIT_TABLE.CLINIC })
     clinic: Clinic
 
+    @OneToOne(() => User, { nullable: false })
+    @JoinColumn({})
+    unitManager: User;
+
     @OneToOne(() => Address, { nullable: false })
     @JoinColumn({ name: CLINIC_UNIT_TABLE.ADDRESS })
     address: Address;
-
-    @OneToMany(() => UserClinicUnit, userClinicUnit => userClinicUnit.clinicUnit, { nullable: false })
-    userClinicUnits: UserClinicUnit[];
 
     @Column({ name: CLINIC_UNIT_TABLE.ACTIVE, nullable: false })
     active: boolean;

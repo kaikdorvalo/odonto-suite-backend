@@ -13,16 +13,12 @@ export class Clinic {
     @Column({ name: CLINIC_TABLE.NAME, nullable: false })
     name: string;
 
-    @Column({ name: CLINIC_TABLE.TENANT_NAME, nullable: false })
-    tenantName: string;
-
     @Column({ name: CLINIC_TABLE.CNPJ, nullable: false })
     cnpj: string;
 
     @OneToOne(() => User, { nullable: false })
     @JoinColumn({ name: CLINIC_TABLE.CLINIC_OWNER })
     clinicOwner: User;
-
 
     @Column({ name: CLINIC_TABLE.ACTIVE, nullable: false })
     active: boolean;

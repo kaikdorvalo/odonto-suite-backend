@@ -19,10 +19,20 @@ export const USER_PASSWORD_TABLE = {
     USER: 'user'
 }
 
-export const USER_CLINIC_UNIT_TABLE = {
+export const CLINIC_UNIT_POSITION_TABLE = {
+    ID: 'id',
+    NAME: 'name',
+    ACTIVE: 'active',
+    CREATED_AT: 'created_at',
+    UPDATED_AT: 'updated_at',
+}
+
+export const CLINIC_UNIT_USER_TABLE = {
     ID: 'id',
     USER: 'user',
     CLINIC_UNIT: 'clinic_unit',
+    POSITION: 'position',
+    ACTIVE: 'active',
     CREATED_AT: 'created_at',
     UPDATED_AT: 'updated_at',
 }
@@ -76,7 +86,6 @@ export const TENANT_TABLE = {
 export const CLINIC_TABLE = {
     ID: 'id',
     NAME: 'name',
-    TENANT_NAME: 'tenant_name',
     CNPJ: 'cnpj',
     CLINIC_OWNER: 'clinic_owner',
     ACTIVE: 'active',
@@ -87,6 +96,7 @@ export const CLINIC_TABLE = {
 export const CLINIC_UNIT_TABLE = {
     ID: 'id',
     NAME: 'name',
+    TENANT: 'tenant',
     CLINIC: 'clinic',
     ACTIVE: 'active',
     ADDRESS: 'address',
@@ -94,26 +104,9 @@ export const CLINIC_UNIT_TABLE = {
     UPDATED_AT: 'updated_at',
 }
 
-export const POSITION_TABLE = {
-    ID: 'id',
-    NAME: 'name',
-    ACTIVE: 'active',
-    CREATED_AT: 'created_at',
-    UPDATED_AT: 'updated_at',
-}
-
 export const USER_TYPE_TABLE = {
     ID: 'id',
     NAME: 'name',
-    ACTIVE: 'active',
-    CREATED_AT: 'created_at',
-    UPDATED_AT: 'updated_at',
-}
-
-export const CLINIC_USER_TABLE = {
-    ID: 'id',
-    USER: 'user',
-    POSITION: 'position',
     ACTIVE: 'active',
     CREATED_AT: 'created_at',
     UPDATED_AT: 'updated_at',

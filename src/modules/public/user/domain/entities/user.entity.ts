@@ -5,6 +5,7 @@ import { Address } from "../../../../common/address/domain/entities/address.enti
 import { IndexNames } from "../../../../../common/constants/index-names.constants";
 import { SCHEMAS } from "../../../../../common/constants/schemas.constants";
 import { UserType } from "./user-type.entity";
+import { ClinicUnitUser } from "../../../../../modules/public/clinic-unit/domain/entities/clinic-unit-user.entity";
 
 @Entity({ name: DefaultTableNames.USER, schema: SCHEMAS.PUBLIC })
 export class User {
@@ -27,6 +28,9 @@ export class User {
     @Column({ name: USER_TABLE.EMAIL, nullable: false, unique: true })
     @Index(IndexNames.EMAIL)
     email: string;
+
+    @OneToMany(() => ClinicUnitUser, clinicUnitUser => clinicUnitUser.user)
+    clinicUnitUser: ClinicUnitUser[];
 
     @Column({ name: USER_TABLE.DATE_OF_BIRTH, nullable: false })
     dateOfBirth: Date;

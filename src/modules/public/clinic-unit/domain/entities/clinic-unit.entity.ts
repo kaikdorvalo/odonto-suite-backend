@@ -6,6 +6,7 @@ import { Clinic } from "../../../clinic/domain/entities/clinic.entity";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "../../../../../modules/public/user/domain/entities/user.entity";
 import { Tenant } from "../../../../../modules/public/tenant/domain/entities/tenant.entity";
+import { ClinicUnitUser } from "./clinic-unit-user.entity";
 
 
 @Entity({ name: DefaultTableNames.CLINIC_UNIT, schema: SCHEMAS.PUBLIC })
@@ -24,6 +25,9 @@ export class ClinicUnit {
     @OneToOne(() => Clinic, { nullable: false })
     @JoinColumn({ name: CLINIC_UNIT_TABLE.CLINIC })
     clinic: Clinic
+
+    @OneToMany(() => ClinicUnitUser, clinicUnitUser => clinicUnitUser.clinic_unit)
+    clinicUnitUser: ClinicUnitUser[]
 
     @OneToOne(() => User, { nullable: false })
     @JoinColumn({})

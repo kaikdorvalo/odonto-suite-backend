@@ -43,7 +43,7 @@ export class UserService {
         }
     }
 
-    clearCpf(string: string): string | null {
+    onlyNumbersString(string: string): string | null {
         if (typeof string !== 'string') return null;
         const regex = new Regex();
         return regex.onlyNumbers(string);
@@ -51,7 +51,7 @@ export class UserService {
 
     validateCpf(cpf: string): string | boolean {
         if (typeof cpf !== "string") return false
-        cpf = this.clearCpf(cpf);
+        cpf = this.onlyNumbersString(cpf);
         if (
             !cpf ||
             cpf.length != 11 ||

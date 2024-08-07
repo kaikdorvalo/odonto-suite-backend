@@ -32,7 +32,8 @@ export class CreateUserUseCase {
             await queryRunner.connect();
             await queryRunner.startTransaction();
 
-            createUser.cpf = this.userService.clearCpf(createUser.cpf)
+            createUser.cpf = this.userService.onlyNumbersString(createUser.cpf);
+            createUser.phoneNumber = this.userService.onlyNumbersString(createUser.phoneNumber)
 
             if (!this.userService.validateCpf(createUser.cpf)) {
                 throw new UserInvalidCpfException();

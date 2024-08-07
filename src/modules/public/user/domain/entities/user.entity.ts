@@ -29,6 +29,9 @@ export class User {
     @Index(IndexNames.EMAIL)
     email: string;
 
+    @Column({ name: USER_TABLE.PHONE_NUMBER, nullable: false, unique: true })
+    phoneNumber: string;
+
     @OneToMany(() => ClinicUnitUser, clinicUnitUser => clinicUnitUser.user)
     clinicUnitUser: ClinicUnitUser[];
 

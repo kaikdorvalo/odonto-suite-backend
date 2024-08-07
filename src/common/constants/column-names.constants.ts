@@ -4,6 +4,7 @@ export const USER_TABLE = {
     LAST_NAME: 'last_name',
     CPF: 'cpf',
     EMAIL: 'email',
+    PHONE_NUMBER: 'phone_number',
     DATE_OF_BIRTH: 'date_of_birth',
     USER_ADDRESS_ID: 'user_address_id',
     USER_TYPE_ID: 'user_type_id',
